@@ -6,17 +6,17 @@ class POS:
         self.window = window
         self.window.geometry('1360x720+0+0')
         self.window.title("SERENPOS")
-        self.LoginFrame()
-
-        set_appearance_mode('dark')
-        set_default_color_theme('dark-blue')
+        
         self.navigationframe = CTkFrame(self.window,width = 1360,height = 60)
         self.navigationframe.pack(pady=0,padx =0)
         self.navigationframe.configure(fg_color = "lightblue")
-        
-    #   Frame Title
+        # Frame Title
         self.nav_title = CTkLabel(self.navigationframe,text = "Serenity Point-Of-Sales System",font = ("Montserrat",20,'bold'),text_color="black")
         self.nav_title.place(relx = 0.02,rely =0.3)
+
+        self.main_dashboard()
+        set_appearance_mode('dark')
+        set_default_color_theme('dark-blue')
     def LoginFrame(self):
         self.loginFrame=CTkFrame(self.window,width  = 500,height = 700,corner_radius=15)
         self.loginFrame.pack(padx = 200,pady = 50)
@@ -39,7 +39,11 @@ class POS:
         self.forgot = CTkLabel(self.loginFrame,text = "Forgot password? Contact System Admin",font = ("Montserrat",14),text_color = "lightblue")
         self.forgot.place(relx = 0.15,rely =0.64)
         
-
+    def main_dashboard(self):
+        
+        self.navigationframe.configure(fg_color = "lightblue")
+        self.dashFrame = CTkFrame(self.window,width =1358,height =660)
+        self.dashFrame.place(relx = 0,rely = 0.08)
 
 pos = CTk()
 object = POS(pos)
