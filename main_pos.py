@@ -6,6 +6,7 @@ class POS:
         self.window = window
         self.window.geometry('1360x720+0+0')
         self.window.title("SERENPOS")
+        self.LoginFrame()
 
         set_appearance_mode('dark')
         set_default_color_theme('dark-blue')
@@ -16,7 +17,7 @@ class POS:
     #   Frame Title
         self.nav_title = CTkLabel(self.navigationframe,text = "Serenity Point-Of-Sales System",font = ("Montserrat",20,'bold'),text_color="black")
         self.nav_title.place(relx = 0.02,rely =0.3)
-
+    def LoginFrame(self):
         self.loginFrame=CTkFrame(self.window,width  = 500,height = 700,corner_radius=15)
         self.loginFrame.pack(padx = 200,pady = 50)
 
@@ -30,10 +31,15 @@ class POS:
 
         self.entryuserpass = CTkEntry(self.loginFrame,placeholder_text= "Password",font = ("Montserrat",15),width = 335,height=32,corner_radius=20)
         self.entryuserpass.place(relx = 0.15,rely = 0.4)
-        self.entryuserpass.configure(placeholder_text_color = "lightblue")
+        self.entryuserpass.configure(placeholder_text_color = "lightblue",show = '*')
 
         self.loginButton = CTkButton(self.loginFrame,text = "Login",text_color= "white",border_color='lightblue',corner_radius=20,width =335,height = 32,font = ("Montserrat",15,'bold'),hover_color="green")
         self.loginButton.place(relx = 0.15,rely = 0.55)
+
+        self.forgot = CTkLabel(self.loginFrame,text = "Forgot password? Contact System Admin",font = ("Montserrat",14),text_color = "lightblue")
+        self.forgot.place(relx = 0.15,rely =0.64)
+        
+
 
 pos = CTk()
 object = POS(pos)
